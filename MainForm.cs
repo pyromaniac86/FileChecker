@@ -42,9 +42,9 @@ namespace FileChecker
                 string[] fileNames = fileNamesField.Text.Split(','); // из поля с именами файлов через запятую достали массив строк.
                 string[] languageIDs = languagesField.Text.Split(','); //Аналогично для ID языков
                 List<string> results = new List<string>(); //объявим тут авторазмерный массив для результатов.
+                resultsField.Text = "";
 
-
-                for (int i = 0; i < fileNames.Length; i++) //делаем цикл по массиву
+                for (int i = 0; i < fileNames.Length; i++) //делаем цикл по именам файлов
                 {
                     string[] foundFileNames = Directory.GetFiles(pathToFolderField.Text, fileNames[i] + "*.dll"); //команда ищет в заданной папке по заданной маске и возвращает массив путей до файлов.
                     if (foundFileNames.Length != 0)
@@ -55,25 +55,25 @@ namespace FileChecker
                         {
                             for (int k = 0; k < languageIDs.Length; k++) //и надо пройти по каждому ID языка
                             {
-                                Console.WriteLine("i = " + i + "   j = " + j + "   k = " + k);
-                                Console.WriteLine(foundFileNames[j]);
-                                int maskPosition = pathToFolderField.Text.Length + fileNames[i].Length + 1;
-                                if (foundFileNames[j].Substring(maskPosition, (foundFileNames[j].Length - maskPosition - 4)) == languageIDs[k]) //вырезаем строку, которая была в маске под звездочкой.
+                                //Console.WriteLine("i = " + i + "   j = " + j + "   k = " + k);
+                                //Console.WriteLine(foundFileNames[j]);
+                                int maskPosition = pathToFolderField.Text.Length + fileNames[i].Length + 1; //начало маски
+                                int tmp = foundFileNames[j].IndexOf(".dll");
+                                int maskLenght = tmp - maskPosition; //длина
+                                if (foundFileNames[j].Substring(maskPosition, maskLenght) == languageIDs[k]) //вырезаем строку, которая была в маске под звездочкой.
                                 {
                                     results.Add(foundFileNames[j]); //если ID равны, до добавляем запись в результирующий список.
                                 }
-                                else { resultsField.Text = resultsField.Text + "    " + foundFileNames[j].Substring(maskPosition, (foundFileNames[j].Length - maskPosition - 4)); }
+                                //else { resultsField.Text = resultsField.Text + "    " + foundFileNames[j].Substring(maskPosition, (foundFileNames[j].Length - maskPosition - 4)); }
                             }
                         }
                     }
 
-                    if (results.Count != 0)
-                    {
-                        resultsField.Text = results[results.Count];
-                    }
-                    
+                }
 
-
+                for (int i = 0; i < results.Count; i++)
+                {
+                    resultsField.Text = resultsField.Text + results[i] + "\n";
                 }
             }
             catch (Exception)

@@ -72,7 +72,7 @@
             this.languagesField.Name = "languagesField";
             this.languagesField.Size = new System.Drawing.Size(301, 29);
             this.languagesField.TabIndex = 2;
-            this.languagesField.Text = "0,1,2,3,5,15,63";
+            this.languagesField.Text = "0,1,2,3,5,26,63";
             // 
             // toolTipForLanguagesField
             // 
@@ -99,7 +99,7 @@
             this.fileNamesField.Name = "fileNamesField";
             this.fileNamesField.Size = new System.Drawing.Size(301, 29);
             this.fileNamesField.TabIndex = 3;
-            this.fileNamesField.Text = "Test, TestSecond";
+            this.fileNamesField.Text = "Controller,DatabaseCache";
             this.fileNamesField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // filesLabel

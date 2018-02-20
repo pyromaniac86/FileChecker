@@ -10,3 +10,10 @@ D:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.exe
 D:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.pdb
 C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.exe
 C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.pdb
+C:\C#\FileChecker\FileChecker\bin\Debug\FileChecker.exe.config
+C:\C#\FileChecker\FileChecker\bin\Debug\FileChecker.exe
+C:\C#\FileChecker\FileChecker\bin\Debug\FileChecker.pdb
+C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.csprojResolveAssemblyReference.cache
+C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.FileChecker.resources
+C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.Properties.Resources.resources
+C:\C#\FileChecker\FileChecker\obj\Debug\FileChecker.csproj.GenerateResource.Cache
