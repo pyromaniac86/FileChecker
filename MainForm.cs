@@ -42,6 +42,10 @@ namespace FileChecker
                 string[] fileNames = fileNamesField.Text.Split(','); // из поля с именами файлов через запятую достали массив строк.
                 string[] languageIDs = languagesField.Text.Split(','); //Аналогично для ID языков
                 List<string> results = new List<string>(); //объявим тут авторазмерный массив для результатов.
+
+                //сформируем ожидаемый массив строк
+                List<string> expectedResults = new List<string>();
+
                 resultsField.Text = "";
 
                 for (int i = 0; i < fileNames.Length; i++) //делаем цикл по именам файлов
@@ -64,16 +68,24 @@ namespace FileChecker
                                 {
                                     results.Add(foundFileNames[j]); //если ID равны, до добавляем запись в результирующий список.
                                 }
-                                //else { resultsField.Text = resultsField.Text + "    " + foundFileNames[j].Substring(maskPosition, (foundFileNames[j].Length - maskPosition - 4)); }
                             }
                         }
                     }
 
                 }
 
-                for (int i = 0; i < results.Count; i++)
+                //Формируем полный ожидаемый список
+                for (int i = 0; i < fileNames.Length; i++)
                 {
-                    resultsField.Text = resultsField.Text + results[i] + "\n";
+                    for (int j = 0; j < languageIDs.Length; j++)
+                    {
+                        string expectedFile = pathToFolderField.Text + "\\" + fileNames[i] + languageIDs[j] + ".dll";
+                        expectedResults.Add(expectedFile);
+                        if (results.Contains(expectedFile) != true)
+                        {
+                            resultsField.Text = resultsField.Text + expectedFile + "\n";
+                        }
+                    }
                 }
             }
             catch (Exception)
