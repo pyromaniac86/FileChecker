@@ -99,7 +99,7 @@
             this.fileNamesField.Name = "fileNamesField";
             this.fileNamesField.Size = new System.Drawing.Size(301, 29);
             this.fileNamesField.TabIndex = 3;
-            this.fileNamesField.Text = "Controller,DatabaseCache";
+            this.fileNamesField.Text = "AInfo,Controller,DatabaseCache,Export,FlexiBR,FlexiEx,InvoiceSettings,MorphoRes,ProtectionRes,Rules,Scan,ScanStation,ScanStationBR,ServerScan,Shell,TechResources,TrainingUI,RS.MailToolsRes,RS.MapiConnector.x64.Res,RS.MapiConnector.x86.Res";
             this.fileNamesField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // filesLabel

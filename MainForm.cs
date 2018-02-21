@@ -74,6 +74,7 @@ namespace FileChecker
 
                 }
 
+                int resultCount = 0;
                 //Формируем полный ожидаемый список
                 for (int i = 0; i < fileNames.Length; i++)
                 {
@@ -83,10 +84,13 @@ namespace FileChecker
                         expectedResults.Add(expectedFile);
                         if (results.Contains(expectedFile) != true)
                         {
-                            resultsField.Text = resultsField.Text + expectedFile + "\n";
+                            resultsField.Text = resultsField.Text + fileNames[i] + languageIDs[j] + ".dll ";
+                            resultCount++;
                         }
                     }
                 }
+                
+                if (resultCount==0) { resultsField.Text = "No missing files"; }
             }
             catch (Exception)
             {
