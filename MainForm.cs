@@ -66,7 +66,7 @@ namespace FileChecker
                                 int maskLenght = tmp - maskPosition; //длина
                                 if (foundFileNames[j].Substring(maskPosition, maskLenght) == languageIDs[k]) //вырезаем строку, которая была в маске под звездочкой.
                                 {
-                                    results.Add(foundFileNames[j]); //если ID равны, до добавляем запись в результирующий список.
+                                    results.Add(foundFileNames[j].ToUpper()); //если ID равны, до добавляем запись в результирующий список.
                                 }
                             }
                         }
@@ -81,8 +81,8 @@ namespace FileChecker
                     for (int j = 0; j < languageIDs.Length; j++)
                     {
                         string expectedFile = pathToFolderField.Text + "\\" + fileNames[i] + languageIDs[j] + ".dll";
-                        expectedResults.Add(expectedFile);
-                        if (results.Contains(expectedFile) != true)
+                        expectedResults.Add(expectedFile.ToUpper());
+                        if (results.Contains(expectedFile.ToUpper()) != true)
                         {
                             resultsField.Text = resultsField.Text + fileNames[i] + languageIDs[j] + ".dll ";
                             resultCount++;
